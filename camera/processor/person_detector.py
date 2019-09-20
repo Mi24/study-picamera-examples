@@ -1,5 +1,6 @@
 from __future__ import print_function
-from imutils.video.pivideostream import PiVideoStream
+# from imutils.video.pivideostream import PiVideoStream
+from imutils.video.webcamvideostream import WebcamVideoStream
 from imutils.object_detection import non_max_suppression
 import imutils
 import time
@@ -7,9 +8,10 @@ import numpy as np
 import cv2
 
 
-net = cv2.dnn.readNetFromCaffe('/home/pi/models/MobileNetSSD_deploy.prototxt',
-        '/home/pi/models/MobileNetSSD_deploy.caffemodel')
-
+# net = cv2.dnn.readNetFromCaffe('/home/pi/models/MobileNetSSD_deploy.prototxt',
+#         '/home/pi/models/MobileNetSSD_deploy.caffemodel')
+net = cv2.dnn.readNetFromCaffe('/home/jetson/models/MobileNetSSD_deploy.prototxt',
+        '/home/jetson/models/MobileNetSSD_deploy.caffemodel')
 
 class PersonDetector(object):
     def __init__(self, flip = True):
